@@ -1,6 +1,6 @@
 //Rock Paper Scissors game
 
-let result;
+//Global Variables
 let playerScore = 0;
 let computerScore = 0;
 let button = document.querySelector("#play");
@@ -11,7 +11,9 @@ function computerPlay() {
   return options[Math.floor(Math.random() * 3)];
 }
 
+//RPS comparision between Player Choice and Computer generated move
 function playRound(playerSelection, computerSelection) {
+  //Player winning options
   if (
     (playerSelection == "rock" && computerSelection == "scissors") ||
     (playerSelection == "paper" && computerSelection == "rock") ||
@@ -22,6 +24,7 @@ function playRound(playerSelection, computerSelection) {
     console.log(
       `Player ${playerSelection}: Computer ${computerSelection}  Score: ${playerScore} Player: ${computerScore} Computer`
     );
+    //Computer winning options
   } else if (
     (computerSelection == "rock" && playerSelection == "scissors") ||
     (computerSelection == "paper" && playerSelection == "rock") ||
@@ -32,6 +35,7 @@ function playRound(playerSelection, computerSelection) {
     console.log(
       `Player ${playerSelection}: Computer ${computerSelection}  Score: ${playerScore} Player: ${computerScore} Computer`
     );
+    //TIE
   } else {
     console.log("TIE");
     console.log(
@@ -40,11 +44,12 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+//Button to play the game
 button.addEventListener("click", () => {
+  //computer generated value and player input
   let computerChoice = computerPlay();
-
   let playerChoice = prompt("rock/paper/scissors");
   playerChoice.toLowerCase();
-
+  //calling main function to compare the moves
   playRound(playerChoice, computerChoice);
 });
