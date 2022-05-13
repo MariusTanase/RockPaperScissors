@@ -1,45 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" color-mode="light">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>RPS - Game</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <h1>Rock-Paper-Scissors Game</h1>
+  <header>
+    <div class="container">
+    <h1>RPS - Game</h1>
+    </div>
+  </header>
 
-  <div>
-    <h2>SCORE BOARD</h2>
-    <div>
-      <p>Player Score: <span id="player__score">0</span></p>
-      <p>Computer Score: <span id="computer__score">0</span></p>
+  <main>
+    <div class="container scoreboard">
+      <h2>SCORE BOARD</h2>
+      <div>
+        <p>Player Score: <span id="player__score">0</span></p>
+        <p>Computer Score: <span id="computer__score">0</span></p>
+      </div>
+
+      <div class="player__choice">
+        <div>
+          <p id="player__Choice-Text"></p>
+          <p id="computer__Choice-Text"></p>
+        </div>
+        <div>
+          <p id="game__status"></p>
+        </div>
+      </div>
     </div>
 
-    <div>
-      <div>
-      <p id="player__Choice-Text"></p>
-      <p id="computer__Choice-Text"></p>
-      </div>
-      <div>
-        <p id="game__status"></p>
-      </div>
+    <div class="game__buttons">
+      <button class="button" id="rock__option">Rock</button>
+      <button class="button" id="paper__option">Paper</button>
+      <button class="button" id="scissors__option">Scissors</button>
     </div>
 
-  </div>
+    <div class="container">
+      <button class="button reset__button" id="reset__game">Restart Game</button>
+    </div>
+  </main>
 
-  <div>
-    <button id="rock__option">Rock</button>
-    <button id="paper__option">Paper</button>
-    <button id="scissors__option">Scissors</button>
-  </div>
-
-  <div>
-    <button id="reset__game">Restart Game</button>
-  </div>
+  <footer>
+    <p>Coded by &copy Marius Tanase</p>
+  </footer>
 
   <script src="./app.js"></script>
 </body>
