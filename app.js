@@ -94,3 +94,11 @@ restartGameButton.addEventListener("click", restartGame);
 rockButton.addEventListener("click", () => playGame("rock"));
 paperButton.addEventListener("click", () => playGame("paper"));
 scissorsButton.addEventListener("click", () => playGame("scissors"));
+
+
+// Other scripts
+//Darkmode button
+function darkMode() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+}
