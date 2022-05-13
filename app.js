@@ -1,5 +1,4 @@
 //Rock Paper Scissors game
-
 //Global Variables
 let playerScore = 0;
 let computerScore = 0;
@@ -8,71 +7,90 @@ let restartGameButton = document.querySelector("#reset__game");
 let uiPlayerScore = document.querySelector("#player__score");
 let uiComputerScore = document.querySelector("#computer__score");
 //Player Choices
-let rockButton = document.querySelector("#rock__option")
-let paperButton = document.querySelector("#paper__option")
-let scissorsButton = document.querySelector("#scissors__option")
-
+let rockButton = document.querySelector("#rock__option");
+let paperButton = document.querySelector("#paper__option");
+let scissorsButton = document.querySelector("#scissors__option");
+//Text blocks for Player and Computer choice for interface
+let playerChoiceText = document.querySelector("#player__Choice-Text");
+let computerChoiceText = document.querySelector("#computer__Choice-Text");
+//Text block for choices outcome
+let setGameResult = document.querySelector("#game__status")
 
 //Generation Computer Move with a random choice always
 function computerPlay() {
+  //Possible choices from array
   let options = ["rock", "paper", "scissors"];
+  //returing the choice from array with a Math.random  function
   return options[Math.floor(Math.random() * 3)];
 }
 
 //RPS comparision between Player Choice and Computer generated move
 function playRound(playerSelection, computerSelection) {
-  //Player winning options
-  if (
+  //Player winning conditions
+  if(
     (playerSelection == "rock" && computerSelection == "scissors") ||
     (playerSelection == "paper" && computerSelection == "rock") ||
     (playerSelection == "scissors" && computerSelection == "paper")
   ) {
-    console.log("Player Wins");
+    //Updating player score
     ++playerScore;
+    //Updating the UI with player and computer score
     uiPlayerScore.textContent = playerScore;
     uiComputerScore.textContent = computerScore;
-    //Computer winning options
+    //Game result sent to UI
+    setGameResult.textContent = `Round won by Player`
   } else if (
+    //Computer winning conditions
     (computerSelection == "rock" && playerSelection == "scissors") ||
     (computerSelection == "paper" && playerSelection == "rock") ||
     (computerSelection == "scissors" && playerSelection == "paper")
   ) {
+    //Updating computer score
     ++computerScore;
+    //Updating the UI with player and computer score
     uiPlayerScore.textContent = playerScore;
     uiComputerScore.textContent = computerScore;
-
-    //TIE
+    //Game result sent to UI
+    setGameResult.textContent = `Round won by Computer`
   } else {
-    console.log("TIE");
+    //last else with the outcome of TIE
+    //Game result sent to UI in case of TIE
+    setGameResult.textContent = `This round is a TIE`
   }
 }
 
-// //Restart the game
-// button.addEventListener("click", () => {
-//   //computer generated value and player input
-//   let computerChoice = computerPlay();
-//   let playerChoice = prompt("rock/paper/scissors");
-//   playerChoice.toLowerCase();
-//   //calling main function to compare the moves
-//   playRound(playerChoice, computerChoice);
-// });
-
+//Function to restart the game
+//Set player and computer score to 0 and resets the UI text holders
 function restartGame() {
+  //reset game score
   playerScore = 0;
   computerScore = 0;
+  //reset score in UI
   uiPlayerScore.textContent = playerScore;
   uiComputerScore.textContent = computerScore;
+  //reset all the text from UI
+  playerChoiceText.textContent = "";
+  computerChoiceText.textContent = "";
+  setGameResult.textContent = "";
 }
 
-function playerChoice(option) {
+//Function to set player choices from UI
+function playGame(option) {
+  //Player choice from button event listener
   let playerChoice = option;
+  //generating computer choice
   let computerChoice = computerPlay();
+  //UI update with the player and computer choice
+  playerChoiceText.textContent = `Player choice is ${option}`;
+  computerChoiceText.textContent = `Computer choice is ${computerChoice}`;
+  //calling the main function to run the game
   playRound(playerChoice, computerChoice);
 }
 
 
-
+//restart the game by pressing the button
 restartGameButton.addEventListener("click", restartGame);
-rockButton.addEventListener("click", () => playerChoice("rock"));
-paperButton.addEventListener("click", () => playerChoice("paper"));
-scissorsButton.addEventListener("click", () => playerChoice("scissors"));
+//set player choices
+rockButton.addEventListener("click", () => playGame("rock"));
+paperButton.addEventListener("click", () => playGame("paper"));
+scissorsButton.addEventListener("click", () => playGame("scissors"));
