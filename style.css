@@ -59,6 +59,14 @@ h2 {
     background-color: var(--primary-button);
 
     cursor: pointer;
+
+    transition: 0.4s ease;
+}
+
+.darkMode__button:hover{
+    background: var(--secondary-button);
+
+    transition: 0.4s ease;
 }
 
 .container {
@@ -90,9 +98,7 @@ h2 {
     margin: .5rem;
 
     color: var(--text-color);
-
     background: var(--primary-button);
-
     border: none;
     border-radius: .625rem;
 
@@ -103,6 +109,7 @@ h2 {
 
 .button:hover {
     background: var(--secondary-button);
+    transition: 0.4s ease;
 }
 
 .reset__button {
