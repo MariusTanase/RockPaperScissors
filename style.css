@@ -10,7 +10,7 @@
     --bg-color-light: #8a00d4;
     --text-color: #E3E3E3;
     --primary-button: #f782c2;
-    --secondary-button: #d85ea1 ;
+    --secondary-button: #d85ea1;
 }
 
 
@@ -26,12 +26,47 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-h1{
+h1 {
     font-weight: 700;
 }
 
-h2{
+h2 {
     font-weight: 500;
+}
+
+.header__wrapper{
+    position: relative;
+}
+
+.header__title{
+    margin: 2rem;
+}
+
+.darkMode__button{
+    padding: 1rem;
+
+    margin: 0 auto;
+
+    position: absolute;
+    top: 0; 
+    right: 1rem;
+
+    transform: translateY(50%);
+    border-radius: 0.625rem;
+    border: none;
+    color: var(--text-color);
+
+    background-color: var(--primary-button);
+
+    cursor: pointer;
+
+    transition: 0.4s ease;
+}
+
+.darkMode__button:hover{
+    background: var(--secondary-button);
+
+    transition: 0.4s ease;
 }
 
 .container {
@@ -45,7 +80,7 @@ h2{
     margin: 0 auto;
 }
 
-.game__buttons{
+.game__buttons {
 
     display: flex;
     align-items: center;
@@ -56,16 +91,14 @@ h2{
 
 }
 
-.button{
+.button {
     width: 150px;
 
     padding: 1rem 3rem;
     margin: .5rem;
 
     color: var(--text-color);
-
     background: var(--primary-button);
-
     border: none;
     border-radius: .625rem;
 
@@ -74,42 +107,86 @@ h2{
     cursor: pointer;
 }
 
-.button:hover{
+.button:hover {
     background: var(--secondary-button);
+    transition: 0.4s ease;
 }
 
-.reset__button{
+.reset__button {
     background: #d527b7;
     color: var(--text-color);
 }
 
-.reset__button:hover{
+.reset__button:hover {
     background: #f782c2;
 
 }
 
+.scoreboard {
 
-/* Mobile first approach*/
+    width: 90vw;
+    min-height: 10rem;
+
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.choice__container {
+    padding: 2rem;
+}
+
+.choice__container p {
+    gap: 2rem;
+}
+
+.game__status {
+    text-align: center;
+}
+
+.scoreboard__info-panel {
+    margin: 2rem;
+
+    display: flex;
+    flex-direction: row;
+
+    gap: 2rem;
+}
+
+/* Mobile touches*/
 @media (min-width:300px) and (max-width:740px) {
     html {
         font-size: 1.05rem;
     }
 
+    h1 {
+        font-weight: 400;
+    }
+
+    h2 {
+        font-weight: 300;
+    }
+
+
     .container {
         max-width: 95vw;
     }
 
-    .game__buttons{
-            flex-direction: column;
+    .game__buttons {
+        flex-direction: column;
     }
 
 }
 
 @media (min-width:741px) and (max-width:1023px) {
-    .game__buttons{
-            flex-direction: row;
+    .game__buttons {
+        flex-direction: row;
     }
 }
+
 @media (min-width:1024px) and (max-width:1279px) {
     html {
         font-size: 1.20rem;
@@ -131,7 +208,7 @@ h2{
     }
 }
 
-footer{
+footer {
     position: fixed;
     bottom: 0;
     height: 100px;
@@ -142,9 +219,11 @@ footer{
     justify-content: center;
 }
 
-footer > p {
+footer>p {
     font-size: 1.25rem;
 }
+
+
 
 .dark-mode {
     background-color: rgb(36, 36, 36);
