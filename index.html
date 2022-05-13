@@ -11,29 +11,31 @@
 
 <body>
   <header>
-    <div class="container">
-    <h1>RPS - Game</h1>
+    <div class="container header__wrapper">
+      <h1 class="header__title">RPS - Game</h1>
     </div>
-    <div>
-      <button onclick="darkMode()">Toggle dark mode</button>
+    <div class="button__container">
+      <button class="darkMode__button" onclick="darkMode()">Dark</button>
     </div>
   </header>
 
   <main>
     <div class="container scoreboard">
-      <h2>SCORE BOARD</h2>
-      <div>
+
+      <h2 class="scoreboard__title">SCORE BOARD</h2>
+
+      <div class="scoreboard__info-panel">
         <p>Player Score: <span id="player__score">0</span></p>
         <p>Computer Score: <span id="computer__score">0</span></p>
       </div>
 
-      <div class="player__choice">
-        <div>
+      <div class="choice__wrapper">
+        <div class="choice__container">
           <p id="player__Choice-Text"></p>
           <p id="computer__Choice-Text"></p>
         </div>
         <div>
-          <p id="game__status"></p>
+          <h3 id="game__status"></h3>
         </div>
       </div>
     </div>

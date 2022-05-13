@@ -27,18 +27,21 @@ function computerPlay() {
 //RPS comparision between Player Choice and Computer generated move
 function playRound(playerSelection, computerSelection) {
   //Player winning conditions
-  if(
+  if (
     (playerSelection == "rock" && computerSelection == "scissors") ||
     (playerSelection == "paper" && computerSelection == "rock") ||
     (playerSelection == "scissors" && computerSelection == "paper")
   ) {
     //Updating player score
-    ++playerScore;
+    playerScore++;
     //Updating the UI with player and computer score
     uiPlayerScore.textContent = playerScore;
     uiComputerScore.textContent = computerScore;
     //Game result sent to UI
     setGameResult.textContent = `Round won by Player`
+
+
+
   } else if (
     //Computer winning conditions
     (computerSelection == "rock" && playerSelection == "scissors") ||
@@ -46,18 +49,22 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection == "scissors" && playerSelection == "paper")
   ) {
     //Updating computer score
-    ++computerScore;
+    computerScore++;
     //Updating the UI with player and computer score
     uiPlayerScore.textContent = playerScore;
     uiComputerScore.textContent = computerScore;
     //Game result sent to UI
     setGameResult.textContent = `Round won by Computer`
+
+
   } else {
     //last else with the outcome of TIE
     //Game result sent to UI in case of TIE
     setGameResult.textContent = `This round is a TIE`
   }
 }
+
+
 
 //Function to restart the game
 //Set player and computer score to 0 and resets the UI text holders
@@ -69,10 +76,13 @@ function restartGame() {
   uiPlayerScore.textContent = playerScore;
   uiComputerScore.textContent = computerScore;
   //reset all the text from UI
-  playerChoiceText.textContent = "";
-  computerChoiceText.textContent = "";
-  setGameResult.textContent = "";
+  // playerChoiceText.textContent = "";
+  // computerChoiceText.textContent = "";
+  // setGameResult.textContent = "";
 }
+
+
+
 
 //Function to set player choices from UI
 function playGame(option) {
@@ -85,8 +95,22 @@ function playGame(option) {
   computerChoiceText.textContent = `Computer choice is ${computerChoice}`;
   //calling the main function to run the game
   playRound(playerChoice, computerChoice);
-}
 
+  //Condition to restart the game automatically
+  //If player or computer reach score 5, the game restarts automatically
+  if (playerScore >= 5) {
+    setGameResult.textContent = "PLAYER WON THE GAME";
+    playerChoiceText.textContent = `Last player choice was ${option.toUpperCase()}`;
+    computerChoiceText.textContent = `Last computer choice was ${computerChoice.toUpperCase()}`;
+    restartGame()
+  } else if (computerScore >= 5) {
+    setGameResult.textContent = "COMPUTER WON THE GAME";
+playerChoiceText.textContent = `Last player choice was ${option.toUpperCase()}`;
+    computerChoiceText.textContent = `Last computer choice was ${computerChoice.toUpperCase()}`;
+    restartGame()
+  }
+
+}
 
 //restart the game by pressing the button
 restartGameButton.addEventListener("click", restartGame);
