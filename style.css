@@ -79,12 +79,12 @@ h2{
 }
 
 .reset__button{
-    background: #979595;
+    background: #d527b7;
     color: var(--text-color);
 }
 
 .reset__button:hover{
-    background: #ada1a1;
+    background: #f782c2;
 
 }
 
@@ -147,6 +147,6 @@ footer > p {
 }
 
 .dark-mode {
-    background-color: black;
-    color: white;
+    background-color: rgb(36, 36, 36);
+    color: var(--text-color);
 }
