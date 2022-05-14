@@ -10,4 +10,4 @@
 - Darkmode button
 - Restart button
 
-## Link towards the project: https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
+## Link towards the project details: https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
