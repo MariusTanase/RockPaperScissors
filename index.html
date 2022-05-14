@@ -1,61 +1,61 @@
 <!DOCTYPE html>
-<html lang="en" color-mode="light">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPS - Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RPS - Game</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-  <header>
-    <div class="container header__wrapper">
-      <h1 class="header__title">RPS - Game</h1>
-    </div>
-    <div class="button__container">
-      <button class="darkMode__button" onclick="darkMode()">Dark</button>
-    </div>
-  </header>
-
-  <main>
-    <div class="container scoreboard">
-
-      <h2 class="scoreboard__title">SCORE BOARD</h2>
-
-      <div class="scoreboard__info-panel">
-        <p>Player Score: <span id="player__score">0</span></p>
-        <p>Computer Score: <span id="computer__score">0</span></p>
+  <body>
+    <header>
+      <div class="container header__wrapper">
+        <h1 class="header__title">RPS - Game</h1>
       </div>
+      <div class="button__container">
+        <button class="darkMode__button" onclick="darkMode()">Dark</button>
+      </div>
+    </header>
+    <main>
+      <div class="container scoreboard">
+        <h2 class="scoreboard__title">SCORE BOARD</h2>
 
-      <div class="choice__wrapper">
-        <div class="choice__container">
-          <p id="player__Choice-Text"></p>
-          <p id="computer__Choice-Text"></p>
+        <div class="scoreboard__info-panel">
+          <p>Player Score: <span id="player__score">0</span></p>
+          <p>Computer Score: <span id="computer__score">0</span></p>
         </div>
-        <div>
-          <h3 id="game__status"></h3>
+        <div class="choice__wrapper">
+          <div class="choice__container">
+            <p id="player__Choice-Text"></p>
+            <p id="computer__Choice-Text"></p>
+          </div>
+          <div>
+            <h3 id="game__status"></h3>
+          </div>
         </div>
       </div>
+      <div class="game__buttons">
+        <button class="button" id="rock__option">Rock</button>
+        <button class="button" id="paper__option">Paper</button>
+        <button class="button" id="scissors__option">Scissors</button>
+      </div>
+      <div class="container">
+        <button class="button reset__button" id="reset__game">
+          Restart Game
+        </button>
+      </div>
+    </main>
+
+    <div class="game__over">
+      <h2 class="game__over-h2"></h2>
+      <button class="button" onclick="restartGame()">Play again?</button>
     </div>
 
-    <div class="game__buttons">
-      <button class="button" id="rock__option">Rock</button>
-      <button class="button" id="paper__option">Paper</button>
-      <button class="button" id="scissors__option">Scissors</button>
-    </div>
+    <footer>
+      <p>Coded by &copy Marius Tanase</p>
+    </footer>
 
-    <div class="container">
-      <button class="button reset__button" id="reset__game">Restart Game</button>
-    </div>
-  </main>
-
-  <footer>
-    <p>Coded by &copy Marius Tanase</p>
-  </footer>
-
-  <script src="./app.js"></script>
-</body>
-
+    <script src="./app.js"></script>
+  </body>
 </html>
