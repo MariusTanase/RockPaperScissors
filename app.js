@@ -2,7 +2,7 @@
 //Global Variables
 let playerScore = 0;
 let computerScore = 0;
-//UI 
+//UI
 let restartGameButton = document.querySelector("#reset__game");
 let uiPlayerScore = document.querySelector("#player__score");
 let uiComputerScore = document.querySelector("#computer__score");
@@ -14,7 +14,10 @@ let scissorsButton = document.querySelector("#scissors__option");
 let playerChoiceText = document.querySelector("#player__Choice-Text");
 let computerChoiceText = document.querySelector("#computer__Choice-Text");
 //Text block for choices outcome
-let setGameResult = document.querySelector("#game__status")
+let setGameResult = document.querySelector("#game__status");
+//Text block and button when the game ends
+let getGameOverDiv = document.querySelector(".game__over");
+let getGameOverH2 = document.querySelector(".game__over-h2");
 
 //Generation Computer Move with a random choice always
 function computerPlay() {
@@ -38,10 +41,7 @@ function playRound(playerSelection, computerSelection) {
     uiPlayerScore.textContent = playerScore;
     uiComputerScore.textContent = computerScore;
     //Game result sent to UI
-    setGameResult.textContent = `Round won by Player`
-
-
-
+    setGameResult.textContent = `Round won by Player`;
   } else if (
     //Computer winning conditions
     (computerSelection == "rock" && playerSelection == "scissors") ||
@@ -54,17 +54,13 @@ function playRound(playerSelection, computerSelection) {
     uiPlayerScore.textContent = playerScore;
     uiComputerScore.textContent = computerScore;
     //Game result sent to UI
-    setGameResult.textContent = `Round won by Computer`
-
-
+    setGameResult.textContent = `Round won by Computer`;
   } else {
     //last else with the outcome of TIE
     //Game result sent to UI in case of TIE
-    setGameResult.textContent = `This round is a TIE`
+    setGameResult.textContent = `This round is a TIE`;
   }
 }
-
-
 
 //Function to restart the game
 //Set player and computer score to 0 and resets the UI text holders
@@ -76,13 +72,11 @@ function restartGame() {
   uiPlayerScore.textContent = playerScore;
   uiComputerScore.textContent = computerScore;
   //reset all the text from UI
-  // playerChoiceText.textContent = "";
-  // computerChoiceText.textContent = "";
-  // setGameResult.textContent = "";
+  setGameResult.textContent = "";
+  playerChoiceText.textContent = ``;
+  computerChoiceText.textContent = ``;
+  setWinnerPrompt("none");
 }
-
-
-
 
 //Function to set player choices from UI
 function playGame(option) {
@@ -102,14 +96,20 @@ function playGame(option) {
     setGameResult.textContent = "PLAYER WON THE GAME";
     playerChoiceText.textContent = `Last player choice was ${option.toUpperCase()}`;
     computerChoiceText.textContent = `Last computer choice was ${computerChoice.toUpperCase()}`;
-    restartGame()
+    setWinnerPrompt("flex");
   } else if (computerScore >= 5) {
     setGameResult.textContent = "COMPUTER WON THE GAME";
-playerChoiceText.textContent = `Last player choice was ${option.toUpperCase()}`;
+    playerChoiceText.textContent = `Last player choice was ${option.toUpperCase()}`;
     computerChoiceText.textContent = `Last computer choice was ${computerChoice.toUpperCase()}`;
-    restartGame()
+    setWinnerPrompt("flex");
   }
+}
 
+function setWinnerPrompt(option) {
+  //Selecting Div
+  getGameOverH2.textContent = setGameResult.textContent;
+  //Display in function of game status
+  getGameOverDiv.style.display = option;
 }
 
 //restart the game by pressing the button
@@ -118,7 +118,6 @@ restartGameButton.addEventListener("click", restartGame);
 rockButton.addEventListener("click", () => playGame("rock"));
 paperButton.addEventListener("click", () => playGame("paper"));
 scissorsButton.addEventListener("click", () => playGame("scissors"));
-
 
 // Other scripts
 //Darkmode button
